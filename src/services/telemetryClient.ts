@@ -40,9 +40,10 @@ export class TelemetryWebSocketClient {
   private onStatusChangeCallback?: (status: ConnectionStatus) => void;
   public status: ConnectionStatus = 'DISCONNECTED';
 
-  constructor(url = 'ws://localhost:3001/ws/telemetry') {
-    this.url = url;
+  constructor(url?: string) {
+    this.url = url || (import.meta.env.VITE_WS_URL as string) || 'ws://localhost:3001/ws/telemetry';
   }
+
 
   public connect(
     onBatch?: (batch: TelemetryBatchMessage) => void,
