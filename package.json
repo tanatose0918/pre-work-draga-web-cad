@@ -1,0 +1,38 @@
+{
+  "name": "pre-work-draga-web-cad",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "backend": "dotnet run --project ../pre-work-draga-backend/src/Draga.WebApi/Draga.WebApi.csproj"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.0",
+    "@fastify/websocket": "^11.3.0",
+    "@lucide/vue": "^1.38.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/gsap": "^1.20.2",
+    "@types/three": "^0.185.4",
+    "fastify": "^5.12.1",
+    "gsap": "^3.15.0",
+    "lucide-vue-next": "^1.0.0",
+    "mongoose": "^9.9.4",
+    "pinia": "^4.0.3",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.185.1",
+    "vue": "^3.5.41",
+    "vue-i18n": "^11.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11"
+  }
+}

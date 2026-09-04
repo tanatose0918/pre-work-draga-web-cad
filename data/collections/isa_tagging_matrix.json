@@ -1,0 +1,22 @@
+[
+  { "tag": "WTP-01", "name": "Water Treatment & Make-up Plant", "location": "Ground (2 Rai)", "nominalSpecs": "1,200 L/min, 25°C", "functionLoop": "Raw/Rainwater purification & makeup" },
+  { "tag": "P-CHW-01A", "name": "Primary Chilled Water Circulation Pump", "location": "Ground Floor", "nominalSpecs": "2,400 L/min, 6.0 bar", "functionLoop": "Main Chilled Water Distribution" },
+  { "tag": "PT-100", "name": "Riser Supply Pressure Transmitter", "location": "Ground/Riser", "nominalSpecs": "5.2 bar", "functionLoop": "Main supply header pressure monitoring" },
+  { "tag": "TT-100", "name": "Riser Supply Temperature Transmitter", "location": "Ground/Riser", "nominalSpecs": "28.0 °C", "functionLoop": "Main supply header temp monitoring" },
+  { "tag": "CDU-101", "name": "In-Row Coolant Distribution Unit 1", "location": "Floor 1", "nominalSpecs": "450 L/min, 150 kW th", "functionLoop": "Secondary heat exchange for AI Rack Cluster 1" },
+  { "tag": "FCV-101", "name": "Flow Control Valve CDU-1", "location": "Floor 1", "nominalSpecs": "0–500 L/min (4–20 mA)", "functionLoop": "Dynamic flow modulation based on rack load" },
+  { "tag": "TT-101", "name": "CDU-1 Supply Temperature", "location": "Floor 1", "nominalSpecs": "28.5 °C", "functionLoop": "Secondary loop inlet temp" },
+  { "tag": "TT-102", "name": "CDU-1 Return Temperature", "location": "Floor 1", "nominalSpecs": "61.8 °C", "functionLoop": "Secondary loop outlet hot return temp" },
+  { "tag": "DPT-101", "name": "Differential Pressure Transmitter Rack 1", "location": "Floor 1", "nominalSpecs": "0.45 bar dP", "functionLoop": "Cold plate / filter clog detection" },
+  { "tag": "CDU-201", "name": "In-Row Coolant Distribution Unit 2", "location": "Floor 2", "nominalSpecs": "450 L/min, 150 kW th", "functionLoop": "Secondary heat exchange for AI Rack Cluster 2" },
+  { "tag": "CDU-301", "name": "In-Row Coolant Distribution Unit 3", "location": "Floor 3", "nominalSpecs": "450 L/min, 150 kW th", "functionLoop": "Secondary heat exchange for AI Rack Cluster 3" },
+  { "tag": "CDU-401", "name": "In-Row Coolant Distribution Unit 4", "location": "Floor 4", "nominalSpecs": "450 L/min, 150 kW th", "functionLoop": "Secondary heat exchange for AI Rack Cluster 4" },
+  { "tag": "HEX-R01", "name": "Inverted 4-Prong U-Tube Ammonia Evaporator", "location": "Rooftop", "nominalSpecs": "2,400 L/min Water, 18.5 bar NH3", "functionLoop": "Primary Waste Heat Recovery Evaporator" },
+  { "tag": "P-NH3-R01A", "name": "High-Pressure Ammonia Feed/Injector Pump", "location": "Rooftop", "nominalSpecs": "19.5 bar discharge, 380 L/min", "functionLoop": "Liquid ammonia high-pressure injection" },
+  { "tag": "PT-R101", "name": "High-Pressure Ammonia Vapor PT", "location": "Rooftop HEX Out", "nominalSpecs": "18.5 bar", "functionLoop": "Turbine inlet pressure monitor" },
+  { "tag": "TT-R101", "name": "High-Pressure Ammonia Vapor TT", "location": "Rooftop HEX Out", "nominalSpecs": "56.5 °C", "functionLoop": "Superheated vapor temp" },
+  { "tag": "TB-R01", "name": "Ammonia Expansion Turbine", "location": "Rooftop", "nominalSpecs": "12,000 RPM, 550 kW", "functionLoop": "High-pressure vapor expansion" },
+  { "tag": "GEN-R01", "name": "Prosumer Microgrid Synchronous Generator", "location": "Rooftop", "nominalSpecs": "400V 3-Phase, 500 kW", "functionLoop": "On-site green power regeneration" },
+  { "tag": "CND-R01", "name": "6-Arm Spiral Condenser Arm 1", "location": "Rooftop", "nominalSpecs": "7.8 bar, 24.0 °C", "functionLoop": "Ammonia vapor condensation" },
+  { "tag": "CND-R02", "name": "6-Arm Spiral Condenser Arm 2", "location": "Rooftop", "nominalSpecs": "7.8 bar, 24.0 °C", "functionLoop": "Ammonia vapor condensation" }
+]

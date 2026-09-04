@@ -1,0 +1,254 @@
+[
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 01-05",
+    "startDay": 1,
+    "endDay": 5,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.55,
+        "max": 66.21,
+        "avg": 65.4,
+        "p95": 66.08,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 337.7,
+        "max": 523.3,
+        "avg": 433.98,
+        "p95": 519.5,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1218.4,
+        "max": 1800,
+        "avg": 1526.02,
+        "p95": 1793.3,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.81,
+        "max": 28.2,
+        "avg": 28.01,
+        "p95": 28.19,
+        "unit": "°C"
+      }
+    }
+  },
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 06-10",
+    "startDay": 6,
+    "endDay": 10,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.61,
+        "max": 66.2,
+        "avg": 65.4,
+        "p95": 66.1,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 342.5,
+        "max": 521.9,
+        "avg": 434.38,
+        "p95": 518,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1224.8,
+        "max": 1800,
+        "avg": 1527.18,
+        "p95": 1793.1,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.8,
+        "max": 28.19,
+        "avg": 28,
+        "p95": 28.17,
+        "unit": "°C"
+      }
+    }
+  },
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 11-15",
+    "startDay": 11,
+    "endDay": 15,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.55,
+        "max": 66.17,
+        "avg": 65.4,
+        "p95": 66.07,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 340.9,
+        "max": 522.5,
+        "avg": 435.41,
+        "p95": 519.9,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1225,
+        "max": 1800,
+        "avg": 1531.06,
+        "p95": 1800,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.8,
+        "max": 28.19,
+        "avg": 28.01,
+        "p95": 28.18,
+        "unit": "°C"
+      }
+    }
+  },
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 16-20",
+    "startDay": 16,
+    "endDay": 20,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.57,
+        "max": 66.23,
+        "avg": 65.41,
+        "p95": 66.1,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 340.8,
+        "max": 523.6,
+        "avg": 434.03,
+        "p95": 518.4,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1225.1,
+        "max": 1800,
+        "avg": 1527.56,
+        "p95": 1800,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.8,
+        "max": 28.2,
+        "avg": 28,
+        "p95": 28.19,
+        "unit": "°C"
+      }
+    }
+  },
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 21-25",
+    "startDay": 21,
+    "endDay": 25,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.5,
+        "max": 66.22,
+        "avg": 65.41,
+        "p95": 66.09,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 335.2,
+        "max": 524,
+        "avg": 436.27,
+        "p95": 521.3,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1219.7,
+        "max": 1800,
+        "avg": 1532.47,
+        "p95": 1800,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.8,
+        "max": 28.2,
+        "avg": 28.02,
+        "p95": 28.19,
+        "unit": "°C"
+      }
+    }
+  },
+  {
+    "facilityId": "66d31a000000000000000001",
+    "periodLabel": "Day 26-30",
+    "startDay": 26,
+    "endDay": 30,
+    "sampleCount": 120,
+    "pueStats": {
+      "minPue": 1.084,
+      "maxPue": 1.093,
+      "avgPue": 1.088
+    },
+    "tagMetrics": {
+      "TT-RISER-01": {
+        "min": 64.64,
+        "max": 66.25,
+        "avg": 65.4,
+        "p95": 66.12,
+        "unit": "°C"
+      },
+      "PWR-GEN-01": {
+        "min": 339.7,
+        "max": 523.2,
+        "avg": 434.78,
+        "p95": 520.1,
+        "unit": "kW"
+      },
+      "TOTAL-IT-LOAD": {
+        "min": 1215.9,
+        "max": 1800,
+        "avg": 1528.88,
+        "p95": 1800,
+        "unit": "kW"
+      },
+      "CHW-SUPPLY-TEMP": {
+        "min": 27.8,
+        "max": 28.2,
+        "avg": 28.01,
+        "p95": 28.17,
+        "unit": "°C"
+      }
+    }
+  }
+]

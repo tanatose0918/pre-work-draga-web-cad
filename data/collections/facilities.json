@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "66d31a000000000000000001",
+    "facilityCode": "DC-CM-01",
+    "name": "Chiang Mai High-Density AI Data Center & ORC Prosumer Plant",
+    "location": {
+      "province": "Chiang Mai",
+      "country": "Thailand",
+      "coordinates": [98.9931, 18.7883]
+    },
+    "siteAreaRai": 5.0,
+    "buildingFootprintRai": 3.0,
+    "ecologicalAreaRai": 2.0,
+    "floorCount": 4,
+    "designPue": 1.10,
+    "targetPueRange": {
+      "min": 1.08,
+      "max": 1.12
+    },
+    "fluids": [
+      {
+        "fluidCode": "CHW",
+        "fluidName": "Treated Demineralized Chilled Water",
+        "chemicalFormula": "H2O",
+        "operatingPhase": "LIQUID",
+        "hazardLevel": "STANDARD",
+        "designFlowRateLpm": 2400
+      },
+      {
+        "fluidCode": "PG25",
+        "fluidName": "Propylene Glycol 25% Secondary Coolant",
+        "chemicalFormula": "C3H8O2 + H2O",
+        "operatingPhase": "LIQUID",
+        "hazardLevel": "LOW",
+        "designFlowRateLpm": 1800
+      },
+      {
+        "fluidCode": "NH3-R717",
+        "fluidName": "Anhydrous Ammonia Working Fluid",
+        "chemicalFormula": "NH3",
+        "operatingPhase": "TWO_PHASE",
+        "hazardLevel": "CONTROLLED",
+        "designFlowRateLpm": 380
+      }
+    ],
+    "isActive": true,
+    "createdAt": "2026-08-31T00:00:00.000Z",
+    "updatedAt": "2026-08-31T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,625 @@
+{
+  "$schema": "https://draga.sg/schemas/pnd-topology-v1.json",
+  "facility": {
+    "facilityCode": "DC-CM-01",
+    "name": "Chiang Mai High-Density AI Data Center & ORC Prosumer Plant",
+    "location": {
+      "province": "Chiang Mai",
+      "country": "Thailand",
+      "coordinates": [98.9931, 18.7883]
+    },
+    "siteAreaRai": 5.0,
+    "buildingFootprintRai": 3.0,
+    "ecologicalAreaRai": 2.0,
+    "floorCount": 4,
+    "designPue": 1.10,
+    "fluids": [
+      {
+        "fluidCode": "CHW",
+        "fluidName": "Treated Demineralized Chilled Water",
+        "chemicalFormula": "H2O",
+        "operatingPhase": "LIQUID",
+        "hazardLevel": "STANDARD"
+      },
+      {
+        "fluidCode": "PG25",
+        "fluidName": "Propylene Glycol 25% Secondary Coolant",
+        "chemicalFormula": "C3H8O2 + H2O",
+        "operatingPhase": "LIQUID",
+        "hazardLevel": "LOW"
+      },
+      {
+        "fluidCode": "NH3-R717",
+        "fluidName": "Anhydrous Ammonia Working Fluid",
+        "chemicalFormula": "NH3",
+        "operatingPhase": "TWO_PHASE",
+        "hazardLevel": "CONTROLLED"
+      }
+    ],
+    "isActive": true
+  },
+  "split": "Split_01_Train_A",
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "id": "node_wtp_01",
+      "tag": "WTP-01",
+      "name": "Water Treatment & Make-up Plant",
+      "type": "WATER_TREATMENT_PLANT",
+      "floor": "GROUND_EXTERNAL",
+      "systemZone": "WATER_TREATMENT",
+      "x": 80,
+      "y": 800,
+      "coordinates2D": { "svgX": 80, "svgY": 800, "layer": "GROUND_AREA" },
+      "coordinates3D": { "x": -15.0, "y": 0.0, "z": 10.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "capacityLpm": 1200,
+        "pH": 7.2,
+        "conductivityMicroS": 15,
+        "bufferVolumeLiters": 120000
+      },
+      "alarmLimits": {
+        "pH_LL": 6.5,
+        "pH_HH": 8.0,
+        "conductivity_HH": 50,
+        "unit": "pH / uS"
+      }
+    },
+    {
+      "id": "node_pump_chw_01a",
+      "tag": "P-CHW-01A",
+      "name": "Primary Chilled Water Circulation Pump A",
+      "type": "CHILLED_WATER_PUMP",
+      "floor": "GROUND_PLANT",
+      "systemZone": "PRIMARY_COOLING",
+      "x": 220,
+      "y": 800,
+      "coordinates2D": { "svgX": 220, "svgY": 800, "layer": "PRIMARY_LOOP" },
+      "coordinates3D": { "x": -8.0, "y": 0.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "flowLpm": 2400,
+        "headBar": 5.8,
+        "powerKw": 37.0,
+        "ratedRpm": 1750
+      },
+      "alarmLimits": {
+        "pressure_LL": 3.5,
+        "pressure_HH": 7.0,
+        "vibration_H_mms": 4.5,
+        "unit": "bar / mm/s"
+      }
+    },
+    {
+      "id": "node_fcv_101",
+      "tag": "FCV-101",
+      "name": "Flow Control Valve CDU-1",
+      "type": "FLOW_CONTROL_VALVE",
+      "floor": "1",
+      "systemZone": "PRIMARY_COOLING",
+      "x": 340,
+      "y": 650,
+      "coordinates2D": { "svgX": 340, "svgY": 650, "layer": "FLOOR_1" },
+      "coordinates3D": { "x": -4.0, "y": 5.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "valveSizeInch": 3,
+        "cv": 115,
+        "failPosition": "OPEN",
+        "signal": "4-20mA"
+      },
+      "alarmLimits": {
+        "deviation_H_pct": 10.0,
+        "unit": "%"
+      }
+    },
+    {
+      "id": "node_cdu_101",
+      "tag": "CDU-101",
+      "name": "In-Row Coolant Distribution Unit 1",
+      "type": "COOLANT_DISTRIBUTION_UNIT",
+      "floor": "1",
+      "systemZone": "SECONDARY_D2C",
+      "x": 420,
+      "y": 650,
+      "coordinates2D": { "svgX": 420, "svgY": 650, "layer": "FLOOR_1" },
+      "coordinates3D": { "x": -2.0, "y": 5.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "coolingCapacityKw": 180,
+        "primaryFlowLpm": 450,
+        "inletTempC": 28.0,
+        "outletTempC": 62.0
+      },
+      "alarmLimits": {
+        "temp_L": 24.0,
+        "temp_H": 64.0,
+        "temp_HH": 68.0,
+        "dP_HH_bar": 1.2,
+        "unit": "°C / bar"
+      }
+    },
+    {
+      "id": "node_rack_101",
+      "tag": "RACK-101",
+      "name": "AI High-Density Server Cluster 1 (45-60kW D2C)",
+      "type": "AI_SERVER_CLUSTER",
+      "floor": "1",
+      "systemZone": "SECONDARY_D2C",
+      "x": 580,
+      "y": 650,
+      "coordinates2D": { "svgX": 580, "svgY": 650, "layer": "FLOOR_1" },
+      "coordinates3D": { "x": 2.0, "y": 5.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "computePowerKw": 150,
+        "liquidCooledPct": 92,
+        "chipDeltaTC": 32.0,
+        "coldPlateChannels": "0.2mm Skived Copper"
+      },
+      "alarmLimits": {
+        "chipTemp_H": 75.0,
+        "chipTemp_HH": 85.0,
+        "unit": "°C"
+      }
+    },
+    {
+      "id": "node_fcv_201",
+      "tag": "FCV-201",
+      "name": "Flow Control Valve CDU-2",
+      "type": "FLOW_CONTROL_VALVE",
+      "floor": "2",
+      "systemZone": "PRIMARY_COOLING",
+      "x": 340,
+      "y": 500,
+      "coordinates2D": { "svgX": 340, "svgY": 500, "layer": "FLOOR_2" },
+      "coordinates3D": { "x": -4.0, "y": 10.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "valveSizeInch": 3, "cv": 115, "failPosition": "OPEN" },
+      "alarmLimits": { "deviation_H_pct": 10.0, "unit": "%" }
+    },
+    {
+      "id": "node_cdu_201",
+      "tag": "CDU-201",
+      "name": "In-Row Coolant Distribution Unit 2",
+      "type": "COOLANT_DISTRIBUTION_UNIT",
+      "floor": "2",
+      "systemZone": "SECONDARY_D2C",
+      "x": 420,
+      "y": 500,
+      "coordinates2D": { "svgX": 420, "svgY": 500, "layer": "FLOOR_2" },
+      "coordinates3D": { "x": -2.0, "y": 10.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "coolingCapacityKw": 180,
+        "primaryFlowLpm": 450,
+        "inletTempC": 28.0,
+        "outletTempC": 62.0
+      },
+      "alarmLimits": { "temp_H": 64.0, "temp_HH": 68.0, "unit": "°C" }
+    },
+    {
+      "id": "node_rack_201",
+      "tag": "RACK-201",
+      "name": "AI High-Density Server Cluster 2 (45-60kW D2C)",
+      "type": "AI_SERVER_CLUSTER",
+      "floor": "2",
+      "systemZone": "SECONDARY_D2C",
+      "x": 580,
+      "y": 500,
+      "coordinates2D": { "svgX": 580, "svgY": 500, "layer": "FLOOR_2" },
+      "coordinates3D": { "x": 2.0, "y": 10.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "computePowerKw": 150, "liquidCooledPct": 92, "chipDeltaTC": 32.0 },
+      "alarmLimits": { "chipTemp_H": 75.0, "chipTemp_HH": 85.0, "unit": "°C" }
+    },
+    {
+      "id": "node_fcv_301",
+      "tag": "FCV-301",
+      "name": "Flow Control Valve CDU-3",
+      "type": "FLOW_CONTROL_VALVE",
+      "floor": "3",
+      "systemZone": "PRIMARY_COOLING",
+      "x": 340,
+      "y": 350,
+      "coordinates2D": { "svgX": 340, "svgY": 350, "layer": "FLOOR_3" },
+      "coordinates3D": { "x": -4.0, "y": 15.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "valveSizeInch": 3, "cv": 115, "failPosition": "OPEN" },
+      "alarmLimits": { "deviation_H_pct": 10.0, "unit": "%" }
+    },
+    {
+      "id": "node_cdu_301",
+      "tag": "CDU-301",
+      "name": "In-Row Coolant Distribution Unit 3",
+      "type": "COOLANT_DISTRIBUTION_UNIT",
+      "floor": "3",
+      "systemZone": "SECONDARY_D2C",
+      "x": 420,
+      "y": 350,
+      "coordinates2D": { "svgX": 420, "svgY": 350, "layer": "FLOOR_3" },
+      "coordinates3D": { "x": -2.0, "y": 15.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "coolingCapacityKw": 180,
+        "primaryFlowLpm": 450,
+        "inletTempC": 28.0,
+        "outletTempC": 62.0
+      },
+      "alarmLimits": { "temp_H": 64.0, "temp_HH": 68.0, "unit": "°C" }
+    },
+    {
+      "id": "node_rack_301",
+      "tag": "RACK-301",
+      "name": "AI High-Density Server Cluster 3 (45-60kW D2C)",
+      "type": "AI_SERVER_CLUSTER",
+      "floor": "3",
+      "systemZone": "SECONDARY_D2C",
+      "x": 580,
+      "y": 350,
+      "coordinates2D": { "svgX": 580, "svgY": 350, "layer": "FLOOR_3" },
+      "coordinates3D": { "x": 2.0, "y": 15.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "computePowerKw": 150, "liquidCooledPct": 92, "chipDeltaTC": 32.0 },
+      "alarmLimits": { "chipTemp_H": 75.0, "chipTemp_HH": 85.0, "unit": "°C" }
+    },
+    {
+      "id": "node_fcv_401",
+      "tag": "FCV-401",
+      "name": "Flow Control Valve CDU-4",
+      "type": "FLOW_CONTROL_VALVE",
+      "floor": "4",
+      "systemZone": "PRIMARY_COOLING",
+      "x": 340,
+      "y": 200,
+      "coordinates2D": { "svgX": 340, "svgY": 200, "layer": "FLOOR_4" },
+      "coordinates3D": { "x": -4.0, "y": 20.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "valveSizeInch": 3, "cv": 115, "failPosition": "OPEN" },
+      "alarmLimits": { "deviation_H_pct": 10.0, "unit": "%" }
+    },
+    {
+      "id": "node_cdu_401",
+      "tag": "CDU-401",
+      "name": "In-Row Coolant Distribution Unit 4",
+      "type": "COOLANT_DISTRIBUTION_UNIT",
+      "floor": "4",
+      "systemZone": "SECONDARY_D2C",
+      "x": 420,
+      "y": 200,
+      "coordinates2D": { "svgX": 420, "svgY": 200, "layer": "FLOOR_4" },
+      "coordinates3D": { "x": -2.0, "y": 20.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "coolingCapacityKw": 180,
+        "primaryFlowLpm": 450,
+        "inletTempC": 28.0,
+        "outletTempC": 62.0
+      },
+      "alarmLimits": { "temp_H": 64.0, "temp_HH": 68.0, "unit": "°C" }
+    },
+    {
+      "id": "node_rack_401",
+      "tag": "RACK-401",
+      "name": "AI High-Density Server Cluster 4 (45-60kW D2C)",
+      "type": "AI_SERVER_CLUSTER",
+      "floor": "4",
+      "systemZone": "SECONDARY_D2C",
+      "x": 580,
+      "y": 200,
+      "coordinates2D": { "svgX": 580, "svgY": 200, "layer": "FLOOR_4" },
+      "coordinates3D": { "x": 2.0, "y": 20.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": { "computePowerKw": 150, "liquidCooledPct": 92, "chipDeltaTC": 32.0 },
+      "alarmLimits": { "chipTemp_H": 75.0, "chipTemp_HH": 85.0, "unit": "°C" }
+    },
+    {
+      "id": "node_hex_r01",
+      "tag": "HEX-R01",
+      "name": "Inverted 4-Prong U-Tube Ammonia Evaporator",
+      "type": "INVERTED_4PRONG_UTUBE_HEX",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 750,
+      "y": 80,
+      "coordinates2D": { "svgX": 750, "svgY": 80, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 5.0, "y": 25.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "heatExchangedKw": 720,
+        "waterInletTempC": 62.0,
+        "waterOutletTempC": 30.0,
+        "nh3EvapPressureBar": 18.5,
+        "nh3VaporTempC": 56.5,
+        "designHeatRecoveryKw": 4755.5
+      },
+      "alarmLimits": {
+        "pressure_HH": 22.0,
+        "temp_HH": 65.0,
+        "unit": "bar / °C"
+      }
+    },
+    {
+      "id": "node_turb_r01",
+      "tag": "TB-R01",
+      "name": "Ammonia Expansion Turbine",
+      "type": "AMMONIA_ORC_TURBINE",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 920,
+      "y": 80,
+      "coordinates2D": { "svgX": 920, "svgY": 80, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 10.0, "y": 25.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "inletPressureBar": 18.5,
+        "exhaustPressureBar": 7.8,
+        "designSpeedRpm": 12000,
+        "outputPowerKw": 520,
+        "isentropicEfficiency": 0.82
+      },
+      "alarmLimits": {
+        "speed_H_rpm": 12600,
+        "speed_HH_rpm": 13200,
+        "vibration_HH_mms": 6.0,
+        "unit": "RPM / mm/s"
+      }
+    },
+    {
+      "id": "node_gen_r01",
+      "tag": "GEN-R01",
+      "name": "Prosumer Microgrid Synchronous Generator",
+      "type": "PROSUMER_GENERATOR",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 1050,
+      "y": 80,
+      "coordinates2D": { "svgX": 1050, "svgY": 80, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 14.0, "y": 25.0, "z": 0.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "ratedVoltageV": 400,
+        "frequencyHz": 50,
+        "ratedPowerKva": 600,
+        "powerFactor": 0.92,
+        "efficiency": 0.95
+      },
+      "alarmLimits": {
+        "windingTemp_H": 110.0,
+        "windingTemp_HH": 125.0,
+        "unit": "°C"
+      }
+    },
+    {
+      "id": "node_cnd_r01",
+      "tag": "CND-R01",
+      "name": "6-Arm Spiral Condenser Arm 1",
+      "type": "SPIRAL_CONDENSER_ARM",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 920,
+      "y": 250,
+      "coordinates2D": { "svgX": 920, "svgY": 250, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 10.0, "y": 25.0, "z": -5.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "heatRejectionKw": 115,
+        "condensingTempC": 24.0,
+        "operatingPressureBar": 7.6,
+        "totalRejectionKw": 4090.3
+      },
+      "alarmLimits": {
+        "pressure_H": 9.0,
+        "pressure_HH": 10.5,
+        "unit": "bar"
+      }
+    },
+    {
+      "id": "node_cnd_r02",
+      "tag": "CND-R02",
+      "name": "6-Arm Spiral Condenser Arm 2",
+      "type": "SPIRAL_CONDENSER_ARM",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 980,
+      "y": 250,
+      "coordinates2D": { "svgX": 980, "svgY": 250, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 12.0, "y": 25.0, "z": -5.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "heatRejectionKw": 115,
+        "condensingTempC": 24.0,
+        "operatingPressureBar": 7.6
+      },
+      "alarmLimits": { "pressure_H": 9.0, "pressure_HH": 10.5, "unit": "bar" }
+    },
+    {
+      "id": "node_p_nh3_r01a",
+      "tag": "P-NH3-R01A",
+      "name": "High-Pressure Ammonia Feed/Injector Pump A",
+      "type": "HIGH_PRESSURE_AMMONIA_INJECTOR",
+      "floor": "ROOFTOP",
+      "systemZone": "ORC_POWER_LOOP",
+      "x": 750,
+      "y": 250,
+      "coordinates2D": { "svgX": 750, "svgY": 250, "layer": "ROOFTOP_ORC" },
+      "coordinates3D": { "x": 5.0, "y": 25.0, "z": -5.0, "rotationEuler": [0, 0, 0] },
+      "nominalSpecs": {
+        "suctionPressureBar": 7.5,
+        "dischargePressureBar": 19.5,
+        "flowLpm": 380,
+        "pumpMotorKw": 18.5
+      },
+      "alarmLimits": {
+        "dischargePressure_LL": 15.0,
+        "dischargePressure_HH": 23.0,
+        "leakDetection_PPM_H": 25,
+        "unit": "bar / PPM"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_wtp_to_pump",
+      "fromNode": "node_wtp_01",
+      "toNode": "node_pump_chw_01a",
+      "pipeClass": "CS-150-EP",
+      "nominalDiameterInch": 6,
+      "fluidType": "TREATED_MAKEUP_WATER",
+      "nominalFlowLpm": 200,
+      "designPressureBar": 4.0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[80, 800], [220, 800]]
+    },
+    {
+      "id": "edge_pump_to_fcv101",
+      "fromNode": "node_pump_chw_01a",
+      "toNode": "node_fcv_101",
+      "pipeClass": "SS-316-150",
+      "nominalDiameterInch": 10,
+      "fluidType": "CHILLED_WATER_SUPPLY",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 5.8,
+      "isDirectional": true,
+      "routingWaypoints2D": [[220, 800], [220, 650], [340, 650]]
+    },
+    {
+      "id": "edge_fcv101_to_cdu101",
+      "fromNode": "node_fcv_101",
+      "toNode": "node_cdu_101",
+      "pipeClass": "SS-316-150",
+      "nominalDiameterInch": 3,
+      "fluidType": "CHILLED_WATER_SUPPLY",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 4.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[340, 650], [420, 650]]
+    },
+    {
+      "id": "edge_cdu101_to_rack101",
+      "fromNode": "node_cdu_101",
+      "toNode": "node_rack_101",
+      "pipeClass": "COPPER_DIELECTRIC",
+      "nominalDiameterInch": 2,
+      "fluidType": "SECONDARY_COOLANT",
+      "nominalFlowLpm": 380,
+      "designPressureBar": 2.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[420, 640], [580, 640]]
+    },
+    {
+      "id": "edge_rack101_to_cdu101",
+      "fromNode": "node_rack_101",
+      "toNode": "node_cdu_101",
+      "pipeClass": "COPPER_DIELECTRIC",
+      "nominalDiameterInch": 2,
+      "fluidType": "SECONDARY_HOT_RETURN",
+      "nominalFlowLpm": 380,
+      "designPressureBar": 2.2,
+      "isDirectional": true,
+      "routingWaypoints2D": [[580, 660], [420, 660]]
+    },
+    {
+      "id": "edge_cdu101_to_hex_r01",
+      "fromNode": "node_cdu_101",
+      "toNode": "node_hex_r01",
+      "pipeClass": "CS-150-INS",
+      "nominalDiameterInch": 10,
+      "fluidType": "HOT_WATER_RETURN_RISER",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 4.0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[420, 650], [680, 650], [680, 80], [750, 80]]
+    },
+    {
+      "id": "edge_cdu201_to_hex_r01",
+      "fromNode": "node_cdu_201",
+      "toNode": "node_hex_r01",
+      "pipeClass": "CS-150-INS",
+      "nominalDiameterInch": 10,
+      "fluidType": "HOT_WATER_RETURN_RISER",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 4.0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[420, 500], [680, 500], [680, 80], [750, 80]]
+    },
+    {
+      "id": "edge_cdu301_to_hex_r01",
+      "fromNode": "node_cdu_301",
+      "toNode": "node_hex_r01",
+      "pipeClass": "CS-150-INS",
+      "nominalDiameterInch": 10,
+      "fluidType": "HOT_WATER_RETURN_RISER",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 4.0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[420, 350], [680, 350], [680, 80], [750, 80]]
+    },
+    {
+      "id": "edge_cdu401_to_hex_r01",
+      "fromNode": "node_cdu_401",
+      "toNode": "node_hex_r01",
+      "pipeClass": "CS-150-INS",
+      "nominalDiameterInch": 10,
+      "fluidType": "HOT_WATER_RETURN_RISER",
+      "nominalFlowLpm": 450,
+      "designPressureBar": 4.0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[420, 200], [680, 200], [680, 80], [750, 80]]
+    },
+    {
+      "id": "edge_hex_water_return_to_pump",
+      "fromNode": "node_hex_r01",
+      "toNode": "node_pump_chw_01a",
+      "pipeClass": "SS-316-150",
+      "nominalDiameterInch": 10,
+      "fluidType": "COOLED_SUPPLY_RETURN",
+      "nominalFlowLpm": 1800,
+      "designPressureBar": 3.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[750, 80], [200, 80], [200, 800], [220, 800]]
+    },
+    {
+      "id": "edge_hex_to_turbine",
+      "fromNode": "node_hex_r01",
+      "toNode": "node_turb_r01",
+      "pipeClass": "SS-304-300-INS",
+      "nominalDiameterInch": 4,
+      "fluidType": "SUPERHEATED_AMMONIA_VAPOR",
+      "nominalFlowLpm": 1650,
+      "designPressureBar": 18.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[750, 80], [920, 80]]
+    },
+    {
+      "id": "edge_turb_shaft_to_gen",
+      "fromNode": "node_turb_r01",
+      "toNode": "node_gen_r01",
+      "pipeClass": "MECHANICAL_COUPLING",
+      "nominalDiameterInch": 0,
+      "fluidType": "KINETIC_SHAFT_POWER",
+      "nominalFlowLpm": 0,
+      "designPressureBar": 0,
+      "isDirectional": true,
+      "routingWaypoints2D": [[920, 80], [1050, 80]]
+    },
+    {
+      "id": "edge_turbine_to_condenser",
+      "fromNode": "node_turb_r01",
+      "toNode": "node_cnd_r01",
+      "pipeClass": "CS-300-NH3",
+      "nominalDiameterInch": 6,
+      "fluidType": "EXPANDED_AMMONIA_VAPOR",
+      "nominalFlowLpm": 1650,
+      "designPressureBar": 7.8,
+      "isDirectional": true,
+      "routingWaypoints2D": [[920, 80], [920, 250]]
+    },
+    {
+      "id": "edge_condenser_to_injector_pump",
+      "fromNode": "node_cnd_r01",
+      "toNode": "node_p_nh3_r01a",
+      "pipeClass": "CS-300-NH3",
+      "nominalDiameterInch": 3,
+      "fluidType": "LIQUID_AMMONIA_SATURATED",
+      "nominalFlowLpm": 380,
+      "designPressureBar": 7.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[920, 250], [750, 250]]
+    },
+    {
+      "id": "edge_injector_pump_to_hex",
+      "fromNode": "node_p_nh3_r01a",
+      "toNode": "node_hex_r01",
+      "pipeClass": "SS-316-600-NH3",
+      "nominalDiameterInch": 3,
+      "fluidType": "HIGH_PRESSURE_LIQUID_AMMONIA",
+      "nominalFlowLpm": 380,
+      "designPressureBar": 19.5,
+      "isDirectional": true,
+      "routingWaypoints2D": [[750, 250], [750, 80]]
+    }
+  ]
+}
