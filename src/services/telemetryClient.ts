@@ -41,9 +41,18 @@ export class TelemetryWebSocketClient {
   public status: ConnectionStatus = 'DISCONNECTED';
 
   constructor(url?: string) {
-    this.url = url || (import.meta.env.VITE_WS_URL as string) || 'ws://localhost:3001/ws/telemetry';
+    let target = url || (import.meta.env.VITE_WS_URL as string) || '';
+    if (!target) {
+      if (typeof window !== 'undefined' && window.location.protocol === 'https:' && !window.location.hostname.includes('localhost')) {
+        target = ''; // Fallback to local simulation when deployed on HTTPS without explicit WS url
+      } else {
+        target = 'ws://localhost:3001/ws/telemetry';
+      }
+    } else if (typeof window !== 'undefined' && window.location.protocol === 'https:' && target.startsWith('ws://')) {
+      target = target.replace(/^ws:\/\//i, 'wss://');
+    }
+    this.url = target;
   }
-
 
   public connect(
     onBatch?: (batch: TelemetryBatchMessage) => void,
@@ -54,10 +63,16 @@ export class TelemetryWebSocketClient {
     this.onAckCallback = onAck;
     this.onStatusChangeCallback = onStatusChange;
 
+    if (!this.url) {
+      this.setStatus('FALLBACK_LOCAL');
+      return;
+    }
+
     this.setStatus('CONNECTING');
 
     try {
       this.ws = new WebSocket(this.url);
+
 
       this.ws.onopen = () => {
         this.setStatus('CONNECTED');
